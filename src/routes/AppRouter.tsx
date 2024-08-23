@@ -1,13 +1,9 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 
 // Layouts
-import { HomeLayout, MainLayout } from "@layouts/index";
-import AuthLayout from "../layouts/AuthLayout";
+import { MainLayout } from "@layouts/index";
 // Pages
 import Login from "@pages/Login";
-
-import Companies from "@pages/Companies";
-import CompanyPage from "@pages/CompanyPage";
 
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -20,19 +16,6 @@ const router = createBrowserRouter([
     errorElement: <p>Error</p>,
     children: [
       {
-        index: true,
-        element: <HomeLayout />,
-      },
-      {
-        path: "/companies",
-        element: <Companies />,
-      },
-
-      {
-        path: "/companies/:companyId",
-        element: <CompanyPage />,
-      },
-      {
         path: "/adduser",
         element: <AddUser />,
       },
@@ -40,7 +23,6 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <AuthLayout />,
     errorElement: <p>Error</p>,
     children: [
       {
