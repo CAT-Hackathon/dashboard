@@ -8,6 +8,7 @@ import Login from "@pages/Login";
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AddUser from "../pages/AddUser";
+import AddCompany from "../pages/AddCompany";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/adduser",
     element: <AddUser />,
+  },
+  {
+    path: "/addcompany",
+    element: <AddCompany />,
   },
   {
     path: "/",
