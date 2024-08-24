@@ -12,40 +12,40 @@ import {
   FormLabel,
   FormMessage,
 } from "@components/ui/form";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@components/ui/select";
+
 import SuccessToast from "@components/toasts/SuccessToast";
 import ErrorToast from "@components/toasts/ErrorToast";
 
-import { addUser } from "../validations/addUser";
-import useAddUser from "@hooks/useAddUser";
+import useAddCompany from "@hooks/useAddCompany";
+import { addCompanySchema } from "../validations/addCompany";
 
-const AddUser = () => {
+const AddCompany = () => {
   const navigate = useNavigate();
 
-  const form = useForm<z.infer<typeof addUser>>({
+  const form = useForm<z.infer<typeof addCompanySchema>>({
     mode: "onBlur",
-    resolver: zodResolver(addUser),
+    resolver: zodResolver(addCompanySchema),
     defaultValues: {
-      name: "",
-      email: "",
       phone: "",
-      role: "user",
+      website: "",
+      name: "",
+      address: "",
+      email: "",
+      description: "",
+      industry: "",
+      logo: "",
     },
   });
 
-  const { mutate } = useAddUser();
+  const { mutate } = useAddCompany();
 
-  const submitForm: SubmitHandler<z.infer<typeof addUser>> = (data) => {
+  const submitForm: SubmitHandler<z.infer<typeof addCompanySchema>> = (
+    data
+  ) => {
     mutate(data, {
       onSuccess(data) {
         if (data.data) {
-          SuccessToast("user added sucsses", navigate, "/");
+          SuccessToast("company added sucsses", navigate, "/");
         } else {
           ErrorToast("error");
         }
@@ -110,15 +110,29 @@ const AddUser = () => {
             <div className="col-span-1">
               <FormField
                 control={form.control}
-                name="password"
+                name="address"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel> Password</FormLabel>
+                    <FormLabel> Address</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Please enter Address" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="col-span-1">
+              <FormField
+                control={form.control}
+                name="description"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel> description</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="Please enter password"
+                        placeholder="Please enter description"
                         {...field}
-                        type="password"
                       />
                     </FormControl>
                     <FormMessage />
@@ -126,28 +140,50 @@ const AddUser = () => {
                 )}
               />
             </div>
-
             <div className="col-span-1">
               <FormField
                 control={form.control}
-                name="role"
+                name="industry"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel> Role</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="please select role" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value={"user"}>{" user"}</SelectItem>
-                        <SelectItem value={"admin"}>{"admin"}</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <FormLabel> industry</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Please enter industry" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="col-span-1">
+              <FormField
+                control={form.control}
+                name="website"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel> website</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Please enter website" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="col-span-1">
+              <FormField
+                control={form.control}
+                name="logo"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel> logo</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Please enter logo"
+                        {...field}
+                        type="file"
+                      />
+                    </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -166,4 +202,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default AddCompany;

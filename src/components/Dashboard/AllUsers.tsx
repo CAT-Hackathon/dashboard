@@ -1,15 +1,14 @@
 import RenderUsers from "@components/ui/tables/usersTable/RenderUsers";
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-  } from "@components/ui/card";
-  import SkeletonDemo from "@components/common/SkeletonDemo";
-  import { Link } from "react-router-dom";
-  import useGetAllUsers from "@hooks/useGetAllUsers";
-  
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@components/ui/card";
+import SkeletonDemo from "@components/common/SkeletonDemo";
+import { Link } from "react-router-dom";
+import useGetAllUsers from "@hooks/useGetAllUsers";
 
 const AllUsers = () => {
   const { isLoading: loadingUsers } = useGetAllUsers();
@@ -26,7 +25,7 @@ const AllUsers = () => {
           to="/adduser"
           className="text-lg font-medium bg-slate-700 text-white rounded-lg px-4 py-2"
         >
-          Add user
+          Add User
         </Link>
       </CardHeader>
       <CardContent>

@@ -15,7 +15,6 @@ function useGetCompanies() {
         },
       });
       const data = await res.json();
-      console.log(data.companies);
       return data.companies as Icompanies[];
     },
   });

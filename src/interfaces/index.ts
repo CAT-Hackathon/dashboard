@@ -32,6 +32,16 @@ export interface addUser {
   role: string;
   password: string;
 }
+export interface addCompany {
+  phone: string;
+  website: string;
+  name: string;
+  address: string;
+  email: string;
+  description: string;
+  industry: string;
+  logo: string;
+}
 export interface Ijobs {
   name: string;
   description: string;

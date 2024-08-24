@@ -33,8 +33,6 @@ const Login = () => {
   const submitForm: SubmitHandler<z.infer<typeof LoginSchema>> = (data) => {
     mutate(data, {
       onSuccess(data) {
-        console.log(data.access_token);
-
         localStorage.setItem(
           "token",
           encrypt(data.access_token, import.meta.env.VITE_TOKEN_SECRET)
@@ -112,10 +110,6 @@ const Login = () => {
                 />
               </div>
               <div className="flex justify-between items-center mb-6">
-                {/* <label className="flex items-center">
-                  <input type="checkbox" className="form-checkbox" />
-                  <span className="ml-2 text-gray-700">Remember me</span>
-                </label> */}
                 <a href="/" className="text-blue-500 hover:underline">
                   Forgot password?
                 </a>

@@ -18,7 +18,6 @@ function useGetAllUsers() {
         }
       );
       const data = await res.json();
-      console.log(data.users);
       return data.users as users[];
     },
   });

@@ -1,9 +1,9 @@
-import useGetAllUsers from "@/src/hooks/useGetAllUsers";
+import useGetCompanies from "@/src/hooks/useGetCompanies";
 import { columns } from "./Columns";
 import { DataTable } from "./DataTable";
 
-const RenderUsers = () => {
-  const { data, isLoading } = useGetAllUsers();
+const RenderCompanies = () => {
+  const { data, isLoading } = useGetCompanies();
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -14,4 +14,4 @@ const RenderUsers = () => {
     </div>
   );
 };
-export default RenderUsers;
+export default RenderCompanies;
