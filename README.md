@@ -18,7 +18,17 @@
 3. *Preview The Project*:
     ```bash
     http://localhost:5173
-
+## Accounts
+- Admin
+  ```
+  phone `01012345678`
+  password `A2padf##fd##ssword`
+  ```
+- user
+  ```
+  phone `01014725836`
+  password `A2padf##fd##ssword`
+  ```
 # Dashboard Frontend
 
 This project is a dashboard frontend built using React.js and TypeScript, with features that allow adding, editing, and deleting members. Below is a summary of the libraries and technologies used:
