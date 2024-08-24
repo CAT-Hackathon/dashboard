@@ -1,4 +1,4 @@
-import useGetAllAdmin from "@/src/hooks/useGetAllUsers";
+import useGetAllAdmin from "@/src/hooks/useGetAllAdmin";
 import { columns } from "./Columns";
 import { DataTable } from "./DataTable";
 
