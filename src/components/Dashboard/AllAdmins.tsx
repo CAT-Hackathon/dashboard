@@ -14,7 +14,7 @@ const AllAdmins = () => {
           to="/adduser"
           className="text-lg font-medium bg-slate-700 text-white rounded-lg px-4 py-2"
         >
-          Add user
+          Add Admin
         </Link>
       </CardHeader>
       <CardContent className="grid gap-8">

@@ -23,28 +23,35 @@ import SuccessToast from "@components/toasts/SuccessToast";
 import ErrorToast from "@components/toasts/ErrorToast";
 
 import { addUser } from "../validations/addUser";
-import useAddUser from "../hooks/useAddUser";
+import useAddUser from "@hooks/useAddUser";
 
 const AddUser = () => {
-
   const navigate = useNavigate();
 
   const form = useForm<z.infer<typeof addUser>>({
     mode: "onBlur",
     resolver: zodResolver(addUser),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      role: "user",
+    },
   });
 
   const { mutate } = useAddUser();
 
   const submitForm: SubmitHandler<z.infer<typeof addUser>> = (data) => {
+    console.log(data);
+
     mutate(data, {
       onSuccess(data) {
         console.log(data);
 
-        if (data.code) {
+        if (data.data) {
           SuccessToast("user added sucsses", navigate, "/");
         } else {
-          ErrorToast(data.error.message);
+          ErrorToast("error");
         }
       },
     });
@@ -78,7 +85,11 @@ const AddUser = () => {
                   <FormItem>
                     <FormLabel> email</FormLabel>
                     <FormControl>
-                      <Input placeholder="    please enter name" {...field} type="email"/>
+                      <Input
+                        placeholder="    please enter name"
+                        {...field}
+                        type="email"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -94,6 +105,25 @@ const AddUser = () => {
                     <FormLabel>number</FormLabel>
                     <FormControl>
                       <Input placeholder="please enter phone " {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="col-span-1">
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel> Password</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Please enter password"
+                        {...field}
+                        type="password"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
