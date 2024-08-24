@@ -7,7 +7,6 @@ const RenderAdmin = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  console.log(data);
 
   return (
     <div className="container mx-auto py-10">

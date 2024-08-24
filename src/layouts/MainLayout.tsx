@@ -1,13 +1,11 @@
 import Stats from "@components/Dashboard/Stats";
 import AllUsers from "@components/Dashboard/AllUsers";
 import AllAdmins from "@components/Dashboard/AllAdmins";
-import Nav from "@components/common/Nav";
 import AllCompanies from "../components/Dashboard/AllCompanies";
 
 const MainLayout = () => {
   return (
     <>
-      {/* <Nav /> */}
       <div>
         <Stats />
         <div className="flex min-h-screen w-full flex-col">

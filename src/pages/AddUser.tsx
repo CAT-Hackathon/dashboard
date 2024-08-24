@@ -42,12 +42,8 @@ const AddUser = () => {
   const { mutate } = useAddUser();
 
   const submitForm: SubmitHandler<z.infer<typeof addUser>> = (data) => {
-    console.log(data);
-
     mutate(data, {
       onSuccess(data) {
-        console.log(data);
-
         if (data.data) {
           SuccessToast("user added sucsses", navigate, "/");
         } else {

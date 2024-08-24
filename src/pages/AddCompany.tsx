@@ -42,12 +42,8 @@ const AddCompany = () => {
   const submitForm: SubmitHandler<z.infer<typeof addCompanySchema>> = (
     data
   ) => {
-    console.log(data);
-
     mutate(data, {
       onSuccess(data) {
-        console.log(data);
-
         if (data.data) {
           SuccessToast("company added sucsses", navigate, "/");
         } else {
